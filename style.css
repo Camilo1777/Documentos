@@ -89,7 +89,7 @@ text-transform: none;
     position: relative;
     width: 750px;
     height: 400px;
-    margin: 150px;
+    margin: 15px;
 }
 .card .face{
     position: absolute;
@@ -125,9 +125,9 @@ text-transform: none;
 }
 .card .back{
     transform: perspective(600px)rotateY(180deg);
-    background: #CC8800;
+    background: #1d0b04;;
     padding: 15px;
-    color: rgb(255, 235, 206);
+    color: rgb(253, 207, 0));
     display: flex;
     flex-direction: column;
     text-align:center; 
