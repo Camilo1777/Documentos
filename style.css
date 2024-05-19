@@ -127,7 +127,7 @@ text-transform: none;
     transform: perspective(600px)rotateY(180deg);
     background: #1d0b04;;
     padding: 15px;
-    color: rgb(253, 207, 0));
+    color: rgb(253, 207, 0);
     display: flex;
     flex-direction: column;
     text-align:center; 
