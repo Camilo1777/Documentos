@@ -122,15 +122,15 @@ text-transform: none;
     width: 100%;
     height: 45px;
     line-height: 45px;
-    color: #FFFFFF;
+    color: rgb(249, 183, 255);
     background: rgba(0,0,0,0);
 
 }
 .card .back{
     transform: perspective(600px)rotateY(180deg);
-    background: #1d0b04;;
+    background: rgb(249, 183, 255);
     padding: 15px;
-    color: rgb(253, 207, 0);
+    color: #29005a;
     display: flex;
     flex-direction: column;
     text-align:center; 
