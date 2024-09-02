@@ -1,12 +1,12 @@
 header{
-background-color: #CC8800;
+background-color: #29005a;
 padding: 20px;
 }
 .headerLogo{
     width: 70px;
     padding: 10px;
-    -webkit-box-shadow: -5px 5px 15px 5px #000000; 
-box-shadow: -5px 5px 15px 5px #000000;
+    -webkit-box-shadow: -5px 5px 15px 5px #ff81f4; 
+box-shadow: -5px 5px 15px 5px #ff81f4;
 
 }
 body{
@@ -28,15 +28,16 @@ body{
 }
 .liHeader a{
     text-decoration: none;
-    color: white;
+    color: rgb(255, 0, 200);
 }
 .liHeader a:hover{
-    color: black;
+    color: rgb(249, 183, 255);
     font-size: 25px;
 }
 
 .liHeader::after{
     content: " | ";
+    color: #ff81f4;
 }
 
 #hero{
@@ -58,7 +59,7 @@ video{
     left: 0;
     width:100%;
     height: 100%;
-    background: #1c1c1d;
+    background: #ff81f4);
     opacity:0.5;
     mix-blend-mode: overlay;
 }
@@ -75,10 +76,11 @@ video{
 }
 .textoPromocion{
     font-family: "Arial Black", Gadget, sans-serif;
+    text-align: center;
 font-size: 18px;
 letter-spacing: -0.4px;
 word-spacing: 0.2px;
-color: #FFFFFF;
+color: #ff80ce;
 font-weight: 700;
 text-decoration: none solid rgb(68, 68, 68);
 font-style: normal;
