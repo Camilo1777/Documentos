@@ -1,71 +1,67 @@
 header{
-background-color: #29005a;
-padding: 20px;
+    background-color: black;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
 }
 .headerLogo{
     width: 70px;
     padding: 10px;
-    -webkit-box-shadow: -5px 5px 15px 5px #ff81f4; 
-box-shadow: -5px 5px 15px 5px #ff81f4;
+    -webkit-box-shadow: -5px 5px 15px 5px #ff5a28; 
+    box-shadow: -5px 5px 15px 5px #ff5a28;
 
+}
+p{
+    text-align: justify;
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(255, 179, 156);
+    
+}
+.img1{
+    height: 100vh;
+    position: fixed;
+    filter: brightness(0.5) blur(7px);
+  transform: scale(1.05) skewX(5deg);
 }
 body{
-    background-image:url(inicio/imagenes/bk.jpg);
-    color: #e681ff;
-
+    
+    background-color: #000000;
+    color: #45df85;
+    font-family: 'Inter', sans-serif;
 }
-.ulHeader{
-    list-style: none;
-    display:inline-block;
-    margin-bottom: 1px;
-
+h1 {
+    color: #45df85;
 }
 
-.liHeader{
-    display: inline-block;
-    padding-right: 170px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-}
-.liHeader a{
-    text-decoration: none;
-    color: rgb(255, 0, 200);
-}
+
+
 .liHeader a:hover{
-    color: rgb(249, 183, 255);
+    color: #ff5100;
     font-size: 25px;
-}
-
-.liHeader::after{
-    content: " | ";
-    color: #ff81f4;
 }
 
 #hero{
     min-height: 100vh;
     position: relative;
 }
-video{
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 
-}
 .capa{
     position: absolute;
     top:0;
     left: 0;
     width:100%;
     height: 100%;
-    background: #ff81f4);
+    background: #ff81f4;
     opacity:0.5;
     mix-blend-mode: overlay;
 }
 .textoPromocion{
-    padding-top: 350px;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,25 +70,38 @@ video{
     margin: auto;
     position: relative;
     z-index: 2;
+   
+
+}
+.pdf{
+    padding-top: 100px;
+    position: relative;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ff5100;
+
 }
 .textoPromocion{
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: center;
-font-size: 18px;
-letter-spacing: -0.4px;
-word-spacing: 0.2px;
-color: #29005a;
-font-weight: 700;
-text-decoration: none solid rgb(68, 68, 68);
-font-style: normal;
-font-variant: normal;
-text-transform: none;
+    font-size: 18px;
+    color: #ff5100;
+    font-weight: 100;
+
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    margin-top: 0.5px;
 }
 .card{
     position: relative;
-    width: 750px;
+    width: 100%;
+    max-width: 600px;
     height: 400px;
     margin: 15px;
+   
 }
 .card .face{
     position: absolute;
@@ -122,15 +131,15 @@ text-transform: none;
     width: 100%;
     height: 45px;
     line-height: 45px;
-    color: rgb(249, 183, 255);
+    color: rgb(255, 72, 0);
     background: rgba(0,0,0,0);
 
 }
 .card .back{
     transform: perspective(600px)rotateY(180deg);
-    background: rgb(249, 183, 255);
+    background: rgb(0, 0, 0);
     padding: 15px;
-    color: #29005a;
+    color: #ff5100;
     display: flex;
     flex-direction: column;
     text-align:center; 
@@ -151,4 +160,127 @@ text-transform: none;
 }
 .card:hover .back{
     transform: perspective(600px) rotateY(360deg);
+}
+.collage .card {
+  grid-column: span 2;
+}
+.collage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  gap: 10px;
+  padding: 10px;
+   width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.collage img,
+.collage iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+
+.collage2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas para 3 tarjetas */
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  align-items: stretch;
+}
+.collage2 .card {
+  width: 100%;
+  max-width: 350px;
+  height: 400px;
+  grid-column: auto;
+}
+.collage img,
+.collage iframe {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+
+.collage img:hover,
+.collage iframe:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+/* SOLO para imágenes sueltas del collage */
+.collage .imagenC,
+.collage > iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.collage .imagenC:hover,
+.collage > iframe:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.ulHeader {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.liHeader a {
+    text-decoration: none;
+  color: rgb(255, 92, 28);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 100%;
+
+}
+
+
+.menu-toggle {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: rgb(255, 86, 7);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    z-index: 1000;
+  }
+
+  .ulHeader {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 50px;
+    right: 10px; 
+    width: 200px;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 999;
+  }
+
+  .ulHeader.show {
+    display: flex;
+  }
 }
