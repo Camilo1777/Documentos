@@ -10,7 +10,7 @@ header{
   right: 0; 
   width: 100%;
   z-index: 10000;
-  color: rgb(255, 251, 251);
+  color: rgb(229, 21, 21);
 
 }
 
@@ -61,10 +61,19 @@ body{
 
 
 
+.liHeader a{
+  text-decoration: none;
+  color: #ff7535; /* navbar links in orange */
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 100%;
+}
+
 .liHeader a:hover{
-    color: #f4edeb;
-    transition: font-size 0.3s ease;
-    font-size: 18px;
+  color: #ff7535; /* slightly lighter orange on hover */
+  transition: color 0.2s ease, font-size 0.3s ease;
+  font-size: 18px;
 }
 
 #hero{
@@ -102,7 +111,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #ff5100;
+    color:#ff7535;
 
 }
 .textoPromocion{
@@ -279,7 +288,7 @@ body{
 
 .liHeader a {
     text-decoration: none;
-  color: rgb(249, 245, 244);
+  color: #ff7535;
   font-weight: bold;
   padding: 0.5rem 1rem;
   display: block;
@@ -321,12 +330,12 @@ body{
 
   /* Texto blanco dentro del menú hamburguesa */
   .ulHeader .liHeader a {
-    color: #fff;
-    font-weight: 400;
+    color: #ff5100; /* naranja en móvil */
+    font-weight: 600;
   }
 
   .ulHeader .liHeader a:hover {
-    color: #ddd;
+    color: #ff7a33;
   }
 
   .ulHeader.show {
@@ -378,7 +387,7 @@ body{
 
 /* Typography adjustments requested: main titles bold and black; normal text black and regular weight */
 h1, h2, h3 {
-  color: #000 !important;
+  color: #ff5100 !important; /* main titles in orange */
   font-weight: 700 !important; /* bold for main titles */
 }
 
@@ -389,4 +398,37 @@ p,
 .card .back p {
   color: #000 !important;
   font-weight: 400 !important;
+}
+
+/* Grid for PDF items: 3 columns on large screens, stack on mobile */
+.pdf-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.pdf-item h2{
+  text-align: center;
+  color: #ff5100;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+.pdf-item iframe{
+  width: 100%;
+  height: 420px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 900px){
+  .pdf-grid{ grid-template-columns: repeat(2, 1fr); }
+  .pdf-item iframe{ height: 420px; }
+}
+@media (max-width: 520px){
+  .pdf-grid{ grid-template-columns: 1fr; }
+  .pdf-item iframe{ height: 520px; }
 }
