@@ -1,18 +1,37 @@
 header{
-    background-color: black;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    position: relative;
+  background-color: black; /* make header background invisible */
+  font-family: 'Inter', sans-serif;
+  display: block; /* container will handle layout */
+  padding: 10px 20px;
+  /* Fixed header so navigation stays visible when scrolling */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; 
+  width: 100%;
+  z-index: 10000;
+  color: rgb(255, 251, 251);
+
+}
+
+/* Root color variables: change --page-bg to a light orange if you prefer */
+:root{
+  --page-bg: #f7f7f7; /* light gray by default */
+  /* --page-bg: #fff7ef;  uncomment to use a very light orange */
+}
+
+/* Layout wrapper inside header: logo left, nav right */
+.header-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* center the header content */
 }
 .headerLogo{
     width: 70px;
     padding: 10px;
-    -webkit-box-shadow: -5px 5px 15px 5px #ff5a28; 
-    box-shadow: -5px 5px 15px 5px #ff5a28;
-
 }
 p{
     text-align: justify;
@@ -29,20 +48,23 @@ p{
   transform: scale(1.05) skewX(5deg);
 }
 body{
-    
-    background-color: #000000;
-    color: #45df85;
-    font-family: 'Inter', sans-serif;
+
+  /* Use the new Poppins font first, fall back to Inter then default sans-serif */
+  font-family: 'Poppins', 'Inter', sans-serif;
+  /* Add top padding so page content is not hidden beneath the fixed header */
+  padding-top: 80px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background-color: tomato;
 }
-h1 {
-    color: #45df85;
-}
+
 
 
 
 .liHeader a:hover{
-    color: #ff5100;
-    font-size: 25px;
+    color: #f4edeb;
+    transition: font-size 0.3s ease;
+    font-size: 18px;
 }
 
 #hero{
@@ -127,22 +149,31 @@ h1 {
 
 .card .front h3 {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 45px;
-    line-height: 45px;
-    color: rgb(255, 72, 0);
-    background: rgba(0,0,0,0);
+    bottom: 10px;
+    left: 12px;
+    width: auto;
+    padding: 4px 8px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    background: rgba(0,0,0,0.0);
+    transition: color 0.25s ease;
+    z-index: 2;
+}
 
+/* When card is hovered/flipped, make the small front name turn white */
+.card:hover .front h3,
+.card:focus-within .front h3 {
+  color: #fff;
 }
 .card .back{
-    transform: perspective(600px)rotateY(180deg);
-    background: rgb(0, 0, 0);
-    padding: 15px;
-    color: #ff5100;
-    display: flex;
-    flex-direction: column;
-    text-align:center; 
+  transform: perspective(600px)rotateY(180deg);
+  background: rgb(0, 0, 0);
+  padding: 15px;
+  color: #ffffff; /* texto blanco en la parte trasera de las cartas */
+  display: flex;
+  flex-direction: column;
+  text-align:center; 
 }
 .card .back h3 {
     
@@ -151,12 +182,16 @@ h1 {
     letter-spacing: 2px;
     
 }
+
+/* Name under each card */
+/* removed .card-name - names are shown inside the card front */
 .card .back p {
    
     letter-spacing: 1px;
 }
 .card:hover .front{
     transform: perspective(600px) rotateY(180deg);
+    color: aqua;
 }
 .card:hover .back{
     transform: perspective(600px) rotateY(360deg);
@@ -180,7 +215,7 @@ h1 {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(254, 252, 252, 0.3);
   transition: transform 0.3s ease;
 }
 
@@ -192,12 +227,14 @@ h1 {
   padding: 20px;
   justify-items: center;
   align-items: stretch;
+  
 }
 .collage2 .card {
   width: 100%;
   max-width: 350px;
   height: 400px;
   grid-column: auto;
+  color: blue;
 }
 .collage img,
 .collage iframe {
@@ -237,15 +274,17 @@ h1 {
   gap: 2rem;
   margin: 0;
   padding: 0;
+  margin-left: auto; /* push the nav to the right inside the header container */
 }
 
 .liHeader a {
     text-decoration: none;
-  color: rgb(255, 92, 28);
+  color: rgb(249, 245, 244);
   font-weight: bold;
   padding: 0.5rem 1rem;
   display: block;
   width: 100%;
+
 
 }
 
@@ -270,7 +309,7 @@ h1 {
   .ulHeader {
     display: none;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.95); /* negro cuando se despliega en móvil */
     position: absolute;
     top: 50px;
     right: 10px; 
@@ -280,7 +319,74 @@ h1 {
     z-index: 999;
   }
 
+  /* Texto blanco dentro del menú hamburguesa */
+  .ulHeader .liHeader a {
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .ulHeader .liHeader a:hover {
+    color: #ddd;
+  }
+
   .ulHeader.show {
     display: flex;
   }
+}
+
+/* Semestre 6: grilla responsive que se ajusta y muestra al menos 3 columnas en desktop */
+.collage-sem6 {
+  display: grid;
+  /* columnas responsive: cada columna mínimo 220px, se ajustan al espacio disponible */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.collage-sem6 .imagenC,
+.collage-sem6 > iframe {
+  grid-column: auto;
+  grid-row: auto;
+  width: 100%;
+  /* Proporción vertical tipo celular y mostrar la imagen completa (sin recortar) */
+  aspect-ratio: 9/16; /* portrait phone */
+  object-fit: contain; /* muestra toda la imagen dentro del marco */
+  object-position: center center;
+  background-color: #000; /* fondo para 'letterboxing' al usar contain */
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease;
+}
+.collage-sem6 .imagenC:hover {
+  transform: scale(1.03);
+}
+
+/* Forzar al menos 3 columnas en pantallas más anchas */
+@media (min-width: 900px) {
+  .collage-sem6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* En pantallas extragrandes, permitir 4 columnas */
+@media (min-width: 1200px) {
+  .collage-sem6 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Typography adjustments requested: main titles bold and black; normal text black and regular weight */
+h1, h2, h3 {
+  color: #000 !important;
+  font-weight: 700 !important; /* bold for main titles */
+}
+
+/* Normal running text should be black and regular weight (exclude navbar) */
+p,
+.textoPromocion,
+.pdf,
+.card .back p {
+  color: #000 !important;
+  font-weight: 400 !important;
 }
